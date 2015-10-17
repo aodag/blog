@@ -24,6 +24,7 @@ dev_requires = tests_require + [
     "psycopg2",
     "waitress",
     "pyramid_debugtoolbar",
+    "alembic",
 ]
 
 points = {
