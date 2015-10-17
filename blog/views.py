@@ -51,7 +51,8 @@ class EntryFormView(FormView):
         return self.context.blog
 
     def save_success(self, values):
+        blog = self.blog
         entry = Entry(**values)
-        self.blog.entries.append(entry)
+        blog.entries.append(entry)
         location = self.request.route_url('blog.root')
         return HTTPFound(location=location)
