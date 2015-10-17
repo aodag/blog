@@ -8,6 +8,7 @@ requires = [
     "pyramid_tm",
     "pyramid_jinja2",
     "pyramid_sqlalchemy",
+    "pyramid_deform",
     "deform>=2.0dev",
     "colanderalchemy",
 ]

@@ -20,9 +20,9 @@ class Blog(BaseObject):
     __tablename__ = 'blogs'
     query = Session.query_property()
     blog_id = Column(Integer, primary_key=True)
-    name = Column(Unicode(255), unique=True)
-    title = Column(UnicodeText)
-    descript = Column(UnicodeText)
+    name = Column(Unicode(255), unique=True, nullable=False)
+    title = Column(UnicodeText, nullable=False)
+    description = Column(UnicodeText, nullable=False)
 
 
 class Entry(BaseObject):
@@ -31,7 +31,7 @@ class Entry(BaseObject):
     entry_id = Column(Integer, primary_key=True)
     blog_id = Column(Integer, ForeignKey('blogs.blog_id'))
     blog = relationship('Blog', backref="entries")
-    name = Column(Unicode(255))
-    title = Column(UnicodeText)
-    descript = Column(UnicodeText)
-    date = Column(Date)
+    name = Column(Unicode(255), nullable=False)
+    title = Column(UnicodeText, nullable=False)
+    description = Column(UnicodeText, nullable=False)
+    date = Column(Date, nullable=False)
