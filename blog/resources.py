@@ -11,3 +11,9 @@ class BlogResource(object):
         return models.Blog.query.filter(
             models.Blog.name == self.blog_name,
         ).first()
+
+    def add_blog(self, name, title, description):
+        blog = models.Blog(name=name,
+                           title=title,
+                           description=description)
+        models.Session.add(blog)
