@@ -12,7 +12,14 @@ requires = [
     "colanderalchemy",
 ]
 
-dev_requires = [
+tests_require = [
+    "pytest",
+    "pytest-cov",
+    "testfixtures",
+    "webtest",
+]
+
+dev_requires = tests_require + [
     "psycopg2",
     "waitress",
     "pyramid_debugtoolbar",
@@ -31,8 +38,10 @@ setup(
     author_email="aodagx@gmail.com",
     packages=find_packages(),
     install_requires=requires,
+    tests_require=tests_require,
     extras_require={
         "dev": dev_requires,
+        "testing": tests_require,
     },
     entry_points=points,
 )
