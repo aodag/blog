@@ -26,6 +26,7 @@ dev_requires = tests_require + [
     "waitress",
     "pyramid_debugtoolbar",
     "alembic",
+    "tox",
 ]
 
 points = {
