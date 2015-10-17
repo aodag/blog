@@ -5,6 +5,7 @@ from sqlalchemy import (
     Integer,
     Unicode,
     UnicodeText,
+    UniqueConstraint,
 )
 from sqlalchemy.orm import (
     relationship,
@@ -35,3 +36,7 @@ class Entry(BaseObject):
     title = Column(UnicodeText, nullable=False)
     description = Column(UnicodeText, nullable=False)
     date = Column(Date, nullable=False)
+
+    __table_args__ = (
+        UniqueConstraint('blog_id', 'name'),
+    )
