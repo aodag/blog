@@ -9,6 +9,7 @@ requires = [
     "pyramid_jinja2",
     "pyramid_sqlalchemy",
     "pyramid_deform",
+    "pyramid_layout",
     "deform>=2.0dev",
     "colanderalchemy",
 ]

@@ -1,5 +1,13 @@
-<html>
-  <body>
-    {{ form|safe }}
-  </body>
-</html>
+{% extends main_template %}
+{% block head %}
+{% for css in css_links %}
+<link rel="stylesheet" href="{{ request.static_url(css) }}">
+{% endfor %}
+{% for js in js_links %}
+<script src="{{ request.static_url(js) }}"></script>
+{% endfor %}
+{% endblock %}
+
+{% block body %}
+{{ form|safe }}
+{% endblock %}

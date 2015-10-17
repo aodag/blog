@@ -7,6 +7,7 @@ def includeme(config):
     config.add_route("blog.edit", "/manage/edit")
     config.add_route("entry.create", "/manage/entries")
     config.scan(".views")
+    config.scan(".layouts")
 
 
 def main(global_conf, **settings):

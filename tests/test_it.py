@@ -7,6 +7,8 @@ settings = {
     "pyramid.includes": [
         "pyramid_jinja2",
         "pyramid_sqlalchemy",
+        "pyramid_layout",
+        "pyramid_deform",
     ],
     "sqlalchemy.url": "sqlite:///",
 }
