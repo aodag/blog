@@ -11,6 +11,14 @@ def index(request):
     return dict(blog=request.context.blog)
 
 
+@view_config(route_name="blog.entry",
+             renderer='templates/entry.html')
+def entry(request):
+    entry_name = request.matchdict['name']
+    entry = request.context[entry_name]
+    return dict(entry=entry)
+
+
 @view_config(route_name="blog.edit",
              renderer='templates/form.html')
 class BlogFormView(FormView):

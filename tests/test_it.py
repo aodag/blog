@@ -76,3 +76,6 @@ def test_add_entry(app, default_blog):
 
     res = app.get("/")
     assert "this is first entry" in res
+
+    res = app.get("/entries/first-entry")
+    assert "this is first entry" in res

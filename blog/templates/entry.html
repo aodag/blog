@@ -1,0 +1,12 @@
+{% extends main_template %}
+{% block body %}
+<div class="page-header">
+  <h1 class="page-title">{{ entry.title }} <small>{{ entry.date }}</small</h1>
+</div>
+
+<div>
+  <div>
+    {{ entry.description|safe }}
+  </div>
+</div>
+{% endblock %}

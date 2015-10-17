@@ -10,7 +10,11 @@
 <div>
   {% for entry in blog.entries %}
   <div>
-    <h2>{{ entry.title }} <small>{{ entry.date }}</small></h2>
+    <h2>
+      <a href="{{ request.route_url('blog.entry', name=entry.name) }}">
+        {{ entry.title }} <small>{{ entry.date }}</small>
+      </a>
+    </h2>
     <div>
       {{ entry.description|safe }}
     </div>

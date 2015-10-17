@@ -17,3 +17,10 @@ class BlogResource(object):
                            title=title,
                            description=description)
         models.Session.add(blog)
+
+    def __getitem__(self, name):
+        return models.Entry.query.filter(
+            models.Blog.name == self.blog_name,
+            models.Entry.blog_id == models.Blog.blog_id,
+            models.Entry.name == name,
+        ).first()

@@ -4,6 +4,7 @@ from pyramid.config import Configurator
 def includeme(config):
     config.add_route("blog.root", "/")
     config.add_route("blog.entries", "/entries")
+    config.add_route("blog.entry", "/entries/{name}")
     config.add_route("blog.edit", "/manage/edit")
     config.add_route("entry.create", "/manage/entries")
     config.scan(".views")
