@@ -1,3 +1,6 @@
+from deform.widget import (
+    RichTextWidget,
+)
 from sqlalchemy import (
     Column,
     Date,
@@ -23,7 +26,13 @@ class Blog(BaseObject):
     blog_id = Column(Integer, primary_key=True)
     name = Column(Unicode(255), unique=True, nullable=False)
     title = Column(UnicodeText, nullable=False)
-    description = Column(UnicodeText, nullable=False)
+    description = Column(UnicodeText,
+                         nullable=False,
+                         info={
+                             "colanderalchemy": {
+                                 'widget': RichTextWidget(),
+                             },
+                         })
 
 
 class Entry(BaseObject):
@@ -34,7 +43,13 @@ class Entry(BaseObject):
     blog = relationship('Blog', backref="entries")
     name = Column(Unicode(255), nullable=False)
     title = Column(UnicodeText, nullable=False)
-    description = Column(UnicodeText, nullable=False)
+    description = Column(UnicodeText,
+                         nullable=False,
+                         info={
+                             "colanderalchemy": {
+                                 'widget': RichTextWidget(),
+                             },
+                         })
     date = Column(Date, nullable=False)
 
     __table_args__ = (

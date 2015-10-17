@@ -18,12 +18,23 @@ class BlogFormView(FormView):
                                   includes=['title', 'description'])
     buttons = ('save',)
 
+    def appstruct(self):
+        blog = self.blog
+        return {
+            "title": blog.title,
+            "description": blog.description,
+        }
+
     @property
     def context(self):
         return self.request.context
 
+    @property
+    def blog(self):
+        return self.context.blog
+
     def save_success(self, values):
-        blog = self.context.blog
+        blog = self.blog
         for k, v in values.items():
             setattr(blog, k, v)
         location = self.request.route_url('blog.root')
